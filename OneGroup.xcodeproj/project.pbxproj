@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E8B8CC384B86620DFFD87BA /* Pods_OneGroup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E32761E3665794E471A23 /* Pods_OneGroup.framework */; };
+		8B42DB472110952C00B6BC91 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B42DB462110952C00B6BC91 /* Default-568h@2x.png */; };
 		8BE453D121108BC900441D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE453D021108BC900441D46 /* AppDelegate.swift */; };
 		8BE453D321108BC900441D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE453D221108BC900441D46 /* ViewController.swift */; };
 		8BE453D621108BC900441D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE453D421108BC900441D46 /* Main.storyboard */; };
-		8BE453D921108BC900441D46 /* OneGroup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BE453D721108BC900441D46 /* OneGroup.xcdatamodeld */; };
 		8BE453DB21108BCB00441D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE453DA21108BCB00441D46 /* Assets.xcassets */; };
 		8BE453DE21108BCB00441D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE453DC21108BCB00441D46 /* LaunchScreen.storyboard */; };
+		8BE453E621108C1C00441D46 /* Sfondo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8BE453E521108C1C00441D46 /* Sfondo.jpg */; };
+		8BE453E821108CA700441D46 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE453E721108CA700441D46 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B42DB462110952C00B6BC91 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8BE453CD21108BC900441D46 /* OneGroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneGroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE453D021108BC900441D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE453D221108BC900441D46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BE453D521108BC900441D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BE453D821108BC900441D46 /* OneGroup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OneGroup.xcdatamodel; sourceTree = "<group>"; };
 		8BE453DA21108BCB00441D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BE453DD21108BCB00441D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BE453DF21108BCB00441D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BE453E521108C1C00441D46 /* Sfondo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sfondo.jpg; sourceTree = "<group>"; };
+		8BE453E721108CA700441D46 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B77E32761E3665794E471A23 /* Pods_OneGroup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneGroup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAB13E73A3ACCC0DC31136A3 /* Pods-OneGroup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneGroup.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneGroup/Pods-OneGroup.release.xcconfig"; sourceTree = "<group>"; };
+		E79C596713DA606220778F1D /* Pods-OneGroup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneGroup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneGroup/Pods-OneGroup.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8B8CC384B86620DFFD87BA /* Pods_OneGroup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		449425FF6E370A5C4312608E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B77E32761E3665794E471A23 /* Pods_OneGroup.framework */,
+			);
+			name = Frameworks;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		8B42DB442110949600B6BC91 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8BE453DA21108BCB00441D46 /* Assets.xcassets */,
+				8BE453E721108CA700441D46 /* logo.png */,
+				8BE453E521108C1C00441D46 /* Sfondo.jpg */,
+				8B42DB462110952C00B6BC91 /* Default-568h@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8B42DB45211094B100B6BC91 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				449425FF6E370A5C4312608E /* Frameworks */,
+				8BE453CE21108BC900441D46 /* Products */,
+				8BE453D021108BC900441D46 /* AppDelegate.swift */,
+				8BE453DC21108BCB00441D46 /* LaunchScreen.storyboard */,
+				8BE453DF21108BCB00441D46 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		8BE453C421108BC900441D46 = {
 			isa = PBXGroup;
 			children = (
 				8BE453CF21108BC900441D46 /* OneGroup */,
-				8BE453CE21108BC900441D46 /* Products */,
+				E41885E98F04535987A37254 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,20 +92,27 @@
 				8BE453CD21108BC900441D46 /* OneGroup.app */,
 			);
 			name = Products;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		8BE453CF21108BC900441D46 /* OneGroup */ = {
 			isa = PBXGroup;
 			children = (
-				8BE453D021108BC900441D46 /* AppDelegate.swift */,
+				8B42DB45211094B100B6BC91 /* App */,
+				8B42DB442110949600B6BC91 /* Assets */,
 				8BE453D221108BC900441D46 /* ViewController.swift */,
 				8BE453D421108BC900441D46 /* Main.storyboard */,
-				8BE453DA21108BCB00441D46 /* Assets.xcassets */,
-				8BE453DC21108BCB00441D46 /* LaunchScreen.storyboard */,
-				8BE453DF21108BCB00441D46 /* Info.plist */,
-				8BE453D721108BC900441D46 /* OneGroup.xcdatamodeld */,
 			);
 			path = OneGroup;
+			sourceTree = "<group>";
+		};
+		E41885E98F04535987A37254 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E79C596713DA606220778F1D /* Pods-OneGroup.debug.xcconfig */,
+				CAB13E73A3ACCC0DC31136A3 /* Pods-OneGroup.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BE453E221108BCB00441D46 /* Build configuration list for PBXNativeTarget "OneGroup" */;
 			buildPhases = (
+				224D42173ACC8D76AAEBDDF4 /* [CP] Check Pods Manifest.lock */,
 				8BE453C921108BC900441D46 /* Sources */,
 				8BE453CA21108BC900441D46 /* Frameworks */,
 				8BE453CB21108BC900441D46 /* Resources */,
+				CB82CF69B445EE5574CB6EFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +176,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE453DE21108BCB00441D46 /* LaunchScreen.storyboard in Resources */,
+				8BE453E821108CA700441D46 /* logo.png in Resources */,
 				8BE453DB21108BCB00441D46 /* Assets.xcassets in Resources */,
+				8BE453E621108C1C00441D46 /* Sfondo.jpg in Resources */,
 				8BE453D621108BC900441D46 /* Main.storyboard in Resources */,
+				8B42DB472110952C00B6BC91 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		224D42173ACC8D76AAEBDDF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneGroup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB82CF69B445EE5574CB6EFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OneGroup/Pods-OneGroup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/LcLib/LcLib.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LcLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneGroup/Pods-OneGroup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BE453C921108BC900441D46 /* Sources */ = {
@@ -139,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE453D321108BC900441D46 /* ViewController.swift in Sources */,
-				8BE453D921108BC900441D46 /* OneGroup.xcdatamodeld in Sources */,
 				8BE453D121108BC900441D46 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,10 +377,13 @@
 		};
 		8BE453E321108BCB00441D46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E79C596713DA606220778F1D /* Pods-OneGroup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = OneGroup/Info.plist;
+				DEVELOPMENT_TEAM = VN7J8G7HY8;
+				INFOPLIST_FILE = OneGroup/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,16 +391,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.mebius.OneGroup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		8BE453E421108BCB00441D46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAB13E73A3ACCC0DC31136A3 /* Pods-OneGroup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = OneGroup/Info.plist;
+				DEVELOPMENT_TEAM = VN7J8G7HY8;
+				INFOPLIST_FILE = OneGroup/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.mebius.OneGroup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -336,19 +437,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8BE453D721108BC900441D46 /* OneGroup.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8BE453D821108BC900441D46 /* OneGroup.xcdatamodel */,
-			);
-			currentVersion = 8BE453D821108BC900441D46 /* OneGroup.xcdatamodel */;
-			path = OneGroup.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8BE453C521108BC900441D46 /* Project object */;
 }
