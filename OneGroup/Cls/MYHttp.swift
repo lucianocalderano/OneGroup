@@ -5,14 +5,6 @@
 //  Created by mac on 17/08/17.
 //  Copyright © 2017 Mebius. All rights reserved.
 //
-
-extension NSMutableData {
-    func appendString(_ string: String) {
-        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: false)
-        append(data!)
-    }
-}
-
 enum MYHttpType {
     case grant
     case get
@@ -60,7 +52,7 @@ class MYHttp {
         Alamofire.request(apiUrl,
                           method: type,
                           parameters: json,
-                          headers: headers).responseString { response in
+                          headers: headers).responseJSON(completionHandler: { response in
                             self.startWheel(false)
                             let data = self.fixResponse(response)
                             if data.isValid {
@@ -68,37 +60,21 @@ class MYHttp {
                             } else {
                                 KO (data.dict.string("err"), data.dict.string("msg"))
                             }
-        }
+        })
     }
     
-    private func fixResponse (_ response: DataResponse<String>) -> (isValid: Bool, dict: JsonDict) {
+    private func fixResponse (_ response: DataResponse<Any>) -> (isValid: Bool, dict: JsonDict) {
         let statusCode = response.response?.statusCode
         let array = apiUrl.components(separatedBy: "/")
         let page = array.last ?? apiUrl
         
         if response.result.isSuccess && statusCode == 200 {
-            let dict = removeNullFromJsonString(response.result.value!)
-            printJson(dict)
+            let dict = response.value as! JsonDict
             return (true, dict)
         }
         let errorMessage = response.error == nil ? "Server error" :  (response.error?.localizedDescription)!
         let dict = [ "err" : "Server error \(statusCode ?? 0)\n[ \(page) ]", "msg" : errorMessage ]
         return (false, dict)
-    }
-    
-    private func removeNullFromJsonString (_ text: String) -> JsonDict {
-        if text.isEmpty {
-            return [:]
-        }
-        let jsonString = text.replacingOccurrences(of: ":null", with: ":\"\"")
-        if let data = jsonString.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as! JsonDict
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return [:]
     }
     
     // MARK: - private

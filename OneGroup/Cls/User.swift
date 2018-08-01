@@ -10,7 +10,7 @@ import Foundation
 
 class User  {
     static let shared = User()
-    private var token = ""
+    var token = ""
     private var user = ""
     private var pass = ""
     
@@ -35,7 +35,7 @@ class User  {
         login()
     }
     
-    private func login () {
+    func login () {
         let dict: JsonDict = [
             "grant_type"    : "password",
             "client_id"     : "f3d259ddd3ed8ff3843839b",
@@ -54,7 +54,6 @@ class User  {
                 ] as JsonDict
             
             NotificationCenter.default.post(name: Config.Notification.login, object: true, userInfo: dict)
-            print(self.token, dictMenus)
         }) {
             (err, msg) in
             let dict = [

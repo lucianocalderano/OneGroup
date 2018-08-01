@@ -73,12 +73,13 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
         let valid = notification.object as! Bool
         if (valid) {
-            print(notification.userInfo?.string("menu") ?? "")
+            let ctrl = HomeController.Instance()
+            navigationController?.show(ctrl, sender: self)
+            ctrl.menu = notification.userInfo?.string("menu") ?? ""
         }
         else {
             let title = notification.userInfo?.string("msg") ?? "Errore"
             let msg = notification.userInfo?.string("err") ?? "Errore sconosciuto"
-            print(msg)
             
             let alert = UIAlertController(title: title as String, message: msg  as String, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
