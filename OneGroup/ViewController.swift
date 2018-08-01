@@ -19,16 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet var saveCredBtn: UIButton!
     @IBOutlet var showPassBtn: UIButton!
     @IBOutlet var loginBtn: UIButton!
-
+    
     let check = UIImage.init(named: "check")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if DEBUG
-        userText.text = "admin@admin.it"
-        passText.text = "admin_0n3"
-        #endif
-
         userView.layer.cornerRadius = userView.frame.height / 2
         passView.layer.cornerRadius = passView.frame.height / 2
         loginBtn.layer.cornerRadius = 5
@@ -38,8 +33,14 @@ class ViewController: UIViewController {
         showPassBtn.layer.borderColor = UIColor.white.cgColor
         showPassBtn.layer.borderWidth = 2
         
-        userText.text = UserDefaults.standard.string(forKey: "user")
-        passText.text = UserDefaults.standard.string(forKey: "pass")
+        let me = User.shared.getUser()
+        userText.text = me.user
+        passText.text = me.pass
+        
+        #if DEBUG
+        userText.text = "admin@admin.it"
+        passText.text = "admin_0n3"
+        #endif
         
         if ((userText.text?.count)! > 0 && (passText.text?.count)! > 0) {
             selectButton(btn: saveCredBtn)
@@ -53,8 +54,36 @@ class ViewController: UIViewController {
         selectButton(btn: showPassBtn)
         passText.isSecureTextEntry = showPassBtn.tag == 0
     }
-
+    
     @IBAction func loginSelected () {
+        if (userText.text?.count == 0){
+            userText.becomeFirstResponder()
+            return
+        }
+        if (passText.text?.count == 0){
+            passText.becomeFirstResponder()
+            return
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(httpResponse(_:)),
+                                               name: Config.Notification.login, object: nil)
+        User.shared.login(user: userText.text!, pass: passText.text!, save: (saveCredBtn.tag > 0))
+    }
+    
+    @objc func httpResponse(_ notification:Notification) {
+        NotificationCenter.default.removeObserver(self)
+        let valid = notification.object as! Bool
+        if (valid) {
+            print(notification.userInfo?.string("menu") ?? "")
+        }
+        else {
+            let title = notification.userInfo?.string("msg") ?? "Errore"
+            let msg = notification.userInfo?.string("err") ?? "Errore sconosciuto"
+            print(msg)
+            
+            let alert = UIAlertController(title: title as String, message: msg  as String, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func selectButton(btn: UIButton){
@@ -65,21 +94,5 @@ class ViewController: UIViewController {
             btn.tag = 1
             btn.setBackgroundImage(check, for: .normal)
         }
-    }
-    
-    func loeggedIn () {
-        if (saveCredBtn.tag > 0) {
-            UserDefaults.standard.set(userText.text, forKey: "user")
-            UserDefaults.standard.set(passText.text, forKey: "pass")
-        }
-    }
-    
+    }    
 }
-
-/*
- grant_type:password
- client_id:f3d259ddd3ed8ff3843839b
- client_secret:4c7f6f8fa93d59c45502c0ae8c4a95b
- username:admin@admin.it
- password:admin_0n3
- */

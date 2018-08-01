@@ -27,4 +27,7 @@ struct Config {
         static let header = "Auth "
         static var token = ""
     }
+    struct Notification {
+        static let login = NSNotification.Name(rawValue: "loginNotification")
+    }
 }

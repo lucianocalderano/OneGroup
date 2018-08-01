@@ -52,6 +52,7 @@ class MYHttp {
     func load(ok: @escaping (JsonDict) -> (), KO: @escaping (String, String) -> ()) {
         printJson(json)
         var headers = [String: String]()
+//        headers["content-type"] = "application/json"
         if Config.Auth.token.count > 0 {
             headers["Authorization"] = Config.Auth.header + Config.Auth.token
         }
@@ -73,21 +74,15 @@ class MYHttp {
     private func fixResponse (_ response: DataResponse<String>) -> (isValid: Bool, dict: JsonDict) {
         let statusCode = response.response?.statusCode
         let array = apiUrl.components(separatedBy: "/")
-        let object = json.string("object")
-        let page = object.isEmpty ? (array.last ?? apiUrl) : object
+        let page = array.last ?? apiUrl
         
         if response.result.isSuccess && statusCode == 200 {
-            var dict = removeNullFromJsonString(response.result.value!)
+            let dict = removeNullFromJsonString(response.result.value!)
             printJson(dict)
-            
-            let isValid = dict.string("status") == "ok"
-            if isValid == false {
-                dict = [ "err" : "Server error \(dict.string("code"))\n[ \(page) ]", "msg" : dict.string("message") ]
-            }
-            return (isValid, dict)
+            return (true, dict)
         }
         let errorMessage = response.error == nil ? "Server error" :  (response.error?.localizedDescription)!
-        let dict = [ "err" : "Server error \(statusCode ?? 0)\n[ \(page) ]",  "msg" : errorMessage ]
+        let dict = [ "err" : "Server error \(statusCode ?? 0)\n[ \(page) ]", "msg" : errorMessage ]
         return (false, dict)
     }
     
