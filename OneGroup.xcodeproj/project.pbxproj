@@ -20,7 +20,7 @@
 		8BEDA66821109A5E002A3F94 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDA66521109A5E002A3F94 /* Config.swift */; };
 		8BEDA66921109A5E002A3F94 /* MYHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDA66621109A5E002A3F94 /* MYHttp.swift */; };
 		8BEDA66B21109A6E002A3F94 /* Lang.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BEDA66A21109A6E002A3F94 /* Lang.txt */; };
-		8BFF80612111E85F00002957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF805A2111E85F00002957 /* ViewController.swift */; };
+		8BFF80612111E85F00002957 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF805A2111E85F00002957 /* LoginController.swift */; };
 		8BFF80622111E85F00002957 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF805B2111E85F00002957 /* HomeController.swift */; };
 		8BFF80632111E85F00002957 /* WebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF805C2111E85F00002957 /* WebPage.swift */; };
 		8BFF80642111E85F00002957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF805D2111E85F00002957 /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 		8BEDA66521109A5E002A3F94 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8BEDA66621109A5E002A3F94 /* MYHttp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MYHttp.swift; sourceTree = "<group>"; };
 		8BEDA66A21109A6E002A3F94 /* Lang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Lang.txt; sourceTree = "<group>"; };
-		8BFF805A2111E85F00002957 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BFF805A2111E85F00002957 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		8BFF805B2111E85F00002957 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		8BFF805C2111E85F00002957 /* WebPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPage.swift; sourceTree = "<group>"; };
 		8BFF805D2111E85F00002957 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8BFF805D2111E85F00002957 /* Main.storyboard */,
-				8BFF805A2111E85F00002957 /* ViewController.swift */,
+				8BFF805A2111E85F00002957 /* LoginController.swift */,
 				8BFF805B2111E85F00002957 /* HomeController.swift */,
 				8BFF805C2111E85F00002957 /* WebPage.swift */,
 				8BFF805E2111E85F00002957 /* Menu */,
@@ -299,7 +299,7 @@
 			files = (
 				8BFF80662111E85F00002957 /* MenuView.swift in Sources */,
 				8BEDA66821109A5E002A3F94 /* Config.swift in Sources */,
-				8BFF80612111E85F00002957 /* ViewController.swift in Sources */,
+				8BFF80612111E85F00002957 /* LoginController.swift in Sources */,
 				8BFF80622111E85F00002957 /* HomeController.swift in Sources */,
 				8BFF80632111E85F00002957 /* WebPage.swift in Sources */,
 				8B43D3A32111A69F0074C374 /* User.swift in Sources */,

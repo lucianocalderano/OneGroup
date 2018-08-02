@@ -24,7 +24,9 @@ class MenuView: UIView {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var backView: UIView!
-    
+    @IBOutlet private var topView: UIView!
+    @IBOutlet private var titleLabel: UILabel!
+
     var dataArray = [String]()
     let cellId = "MenuCell"
     
@@ -32,6 +34,14 @@ class MenuView: UIView {
         super.awakeFromNib()
         let tapBack = UITapGestureRecognizer.init(target: self, action: #selector(swipped))
         self.backView.addGestureRecognizer(tapBack)
+        titleLabel.text = "One Group 1.0"
+        let g = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.addGestureRecognizer(g);
+        self.isUserInteractionEnabled = true;
+    }
+    
+    @objc func viewTapped () {
+        menuHide()
     }
     
     @objc func swipped () {
@@ -81,9 +91,12 @@ extension MenuView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = HomeCell.dequeue(tableView, indexPath)
-        cell.title = dataArray[indexPath.row]
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+        if (cell == nil) {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellId);
+        }
+        cell?.textLabel?.text = dataArray[indexPath.row]
+        return cell!
     }
 }
 

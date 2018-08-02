@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginController: UIViewController {
     
     @IBOutlet var userView: UIView!
     @IBOutlet var passView: UIView!

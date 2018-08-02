@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-596" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OneGroup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="OneGroup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,14 +234,27 @@
                                     <outlet property="delegate" destination="A8F-ng-PgK" id="32q-98-Te2"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeO-sc-XCn">
+                                <rect key="frame" x="0.0" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="M9R-M8-cWX"/>
+                                    <constraint firstAttribute="height" constant="40" id="WT4-fh-I70"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="menu"/>
+                                <connections>
+                                    <action selector="menuTapped" destination="A8F-ng-PgK" eventType="touchUpInside" id="UAM-eN-12P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="auv-zU-6QM" firstAttribute="trailing" secondItem="Ccw-aH-Noy" secondAttribute="trailing" constant="16" id="69V-Q4-Bht"/>
                             <constraint firstItem="8hn-jb-YsM" firstAttribute="top" secondItem="auv-zU-6QM" secondAttribute="top" id="JhT-G8-vbI"/>
+                            <constraint firstItem="PeO-sc-XCn" firstAttribute="top" secondItem="auv-zU-6QM" secondAttribute="top" id="T1H-oT-bET"/>
                             <constraint firstItem="8hn-jb-YsM" firstAttribute="leading" secondItem="auv-zU-6QM" secondAttribute="leading" id="cvg-GE-TTB"/>
                             <constraint firstItem="8hn-jb-YsM" firstAttribute="trailing" secondItem="auv-zU-6QM" secondAttribute="trailing" id="dnI-88-Qrn"/>
                             <constraint firstItem="Ccw-aH-Noy" firstAttribute="centerY" secondItem="mpa-9E-nh3" secondAttribute="centerY" id="gTJ-I9-IDr"/>
+                            <constraint firstItem="PeO-sc-XCn" firstAttribute="leading" secondItem="auv-zU-6QM" secondAttribute="leading" id="pSF-uO-8Ak"/>
                             <constraint firstItem="Ccw-aH-Noy" firstAttribute="leading" secondItem="auv-zU-6QM" secondAttribute="leading" constant="16" id="wjw-JE-dx5"/>
                             <constraint firstItem="8hn-jb-YsM" firstAttribute="bottom" secondItem="auv-zU-6QM" secondAttribute="bottom" id="wwH-Hb-3eJ"/>
                         </constraints>
@@ -249,6 +262,7 @@
                     </view>
                     <connections>
                         <outlet property="homeTableView" destination="Ccw-aH-Noy" id="M2v-su-fid"/>
+                        <outlet property="menuButton" destination="PeO-sc-XCn" id="DKU-kW-ecg"/>
                         <outlet property="tableViewHeight" destination="Y6g-EC-IgD" id="BW1-G2-5cs"/>
                     </connections>
                 </viewController>
@@ -259,7 +273,7 @@
         <!--Web Page-->
         <scene sceneID="c6I-O4-NFQ">
             <objects>
-                <viewController storyboardIdentifier="WebPage" id="NyX-Nu-Zyu" customClass="WebPage" customModule="MysteryClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebPage" id="NyX-Nu-Zyu" customClass="WebPage" customModule="OneGroup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VKx-iE-F9G"/>
                         <viewControllerLayoutGuide type="bottom" id="LA8-lu-P2W"/>
@@ -318,5 +332,6 @@
     <resources>
         <image name="back" width="128" height="128"/>
         <image name="logo.png" width="127" height="34"/>
+        <image name="menu" width="200" height="200"/>
     </resources>
 </document>

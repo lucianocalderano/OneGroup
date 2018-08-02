@@ -29,8 +29,10 @@ class HomeController: UIViewController {
         }
     }
     
+    @IBOutlet var menuButton: UIButton!
     @IBOutlet var homeTableView: UITableView!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
+    
     private var dataArray = [String]()
     private var menuDict = JsonDict()
     private let menuView = MenuView.Instance()
@@ -47,16 +49,22 @@ class HomeController: UIViewController {
         
         menuView.isHidden = true
         menuView.delegate = self
-        self.view.addSubview(menuView)
-
+        menuView.dataArray = dataArray;
+        view.addSubview(menuView)
+        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         var rect = self.view.frame
         rect.origin.x = -rect.size.width
-        rect.origin.y = 100
+        rect.origin.y = 20
         rect.size.height -= rect.origin.y
         menuView.frame = rect
+    }
+    
+    @IBAction func menuTapped () {
+        menuShow()
     }
     
     func menuHide() {
