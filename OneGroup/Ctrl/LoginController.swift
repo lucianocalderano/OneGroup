@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: MyViewController {
     
     @IBOutlet var userView: UIView!
     @IBOutlet var passView: UIView!
@@ -46,7 +46,7 @@ class LoginController: UIViewController {
             selectButton(btn: saveCredBtn)
         }
     }
-    
+
     @IBAction func saveSelected () {
         selectButton(btn: saveCredBtn)
     }

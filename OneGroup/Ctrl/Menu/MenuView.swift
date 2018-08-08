@@ -9,8 +9,8 @@
 import UIKit
 
 protocol MenuViewDelegate {
-    func menuVisible(_ visible: Bool)
-    func menuSelectedItem(_ key: String)
+    func menuSelectedItem(atIndex index: Int)
+    func menuLogout()
 }
 
 class MenuView: UIView {
@@ -26,27 +26,29 @@ class MenuView: UIView {
     @IBOutlet private var backView: UIView!
     @IBOutlet private var topView: UIView!
     @IBOutlet private var titleLabel: UILabel!
+//    @IBOutlet private var backButton: MyBackButton!
 
     var dataArray = [String]()
     let cellId = "MenuCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let tapBack = UITapGestureRecognizer.init(target: self, action: #selector(swipped))
+        let tapBack = UITapGestureRecognizer.init(target: self, action: #selector(closeMenu))
         self.backView.addGestureRecognizer(tapBack)
         titleLabel.text = "One Group 1.0"
-        let g = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        self.addGestureRecognizer(g);
-        self.isUserInteractionEnabled = true;
+//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+
+//        let g = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+//        self.addGestureRecognizer(g);
+//        self.isUserInteractionEnabled = true;
     }
     
-    @objc func viewTapped () {
+    @IBAction func closeMenu () {
         menuHide()
     }
     
-    @objc func swipped () {
-        self.menuHide()
-        self.delegate?.menuVisible(false)
+    @IBAction func logout () {
+        delegate?.menuLogout()
     }
     
     func menuHide () {
@@ -67,7 +69,6 @@ class MenuView: UIView {
                                    initialSpringVelocity: 0.1,
                                    options: .curveEaseInOut,
                                    animations: {
-//        UIView.animate(withDuration: 0.3) {
             var rect = self.frame
             rect.origin.x = 0
             self.frame = rect
@@ -105,7 +106,7 @@ extension MenuView: UITableViewDataSource {
 extension MenuView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let key = dataArray[indexPath.row]
-        self.delegate?.menuSelectedItem(key)
+        menuHide()
+        self.delegate?.menuSelectedItem(atIndex: indexPath.row)
     }
 }

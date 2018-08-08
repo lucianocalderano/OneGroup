@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebPage: UIViewController {
+class WebPage: MyViewController {
     class func Instance() -> WebPage {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let ctrlId = String (describing: self)
@@ -19,7 +19,7 @@ class WebPage: UIViewController {
     var page = ""
     
     @IBOutlet private var container: UIView!
-    @IBOutlet private var backButton: UIButton!
+//    @IBOutlet private var backButton: MyBackButton!
     
     private var webView = WKWebView()
     private let wheel = MYWheel()
@@ -28,7 +28,7 @@ class WebPage: UIViewController {
         super.viewDidLoad()
         container.isUserInteractionEnabled = true
         webView.navigationDelegate = self
-        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     override func viewDidAppear(_ animated: Bool) {

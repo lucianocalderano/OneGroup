@@ -16,7 +16,7 @@ extension String {
     }
 }
 
-class HomeController: UIViewController {
+class HomeController: MyViewController {
     class func Instance() -> HomeController {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let ctrlId = String (describing: self)
@@ -29,7 +29,7 @@ class HomeController: UIViewController {
         }
     }
     
-    @IBOutlet var menuButton: UIButton!
+//    @IBOutlet var menuButton: MyBackButton!
     @IBOutlet var homeTableView: UITableView!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     
@@ -51,7 +51,7 @@ class HomeController: UIViewController {
         menuView.delegate = self
         menuView.dataArray = dataArray;
         view.addSubview(menuView)
-        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+//        menuButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,17 +64,9 @@ class HomeController: UIViewController {
     }
     
     @IBAction func menuTapped () {
-        menuShow()
-    }
-    
-    func menuHide() {
-        menuView.menuHide()
-    }
-    
-    func menuShow () {
         menuView.menuShow()
     }
-
+    
     private func createMenu() {
         menuDict = menu.toJSON() as! JsonDict
         for key in menuDict.keys {
@@ -82,7 +74,8 @@ class HomeController: UIViewController {
         }
     }
     
-    private func selectedKey (_ key: String) {
+    private func selectedItem (atIndex index: Int) {
+        let key = dataArray[index]
         let page = menuDict.string(key)
         let ctrl = WebPage.Instance()
         ctrl.page = page
@@ -117,26 +110,19 @@ extension HomeController: UITableViewDataSource {
 extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let key = dataArray[indexPath.row]
-        selectedKey(key)
+        selectedItem(atIndex: indexPath.row)
     }
 }
-
 
 //MARK: -
 
 extension HomeController: MenuViewDelegate {
-    func menuSelectedItem(_ key: String) {
-        selectedKey(key)
+    func menuSelectedItem(atIndex index: Int) {
+        selectedItem(atIndex: index)
     }
     
-    func menuVisible(_ visible: Bool) {
-        if visible {
-            menuShow()
-        }
-        else {
-            menuHide()
-        }
+    func menuLogout() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
