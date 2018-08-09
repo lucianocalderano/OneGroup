@@ -17,28 +17,7 @@
             <subviews>
                 <view alpha="0.63" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct7-OR-d29">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf9-ne-b8H">
-                            <rect key="frame" x="0.0" y="608" width="285" height="59"/>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="59" id="j9R-U6-JMW"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                            <state key="normal" title="Logout">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="logout" destination="iN0-l3-epB" eventType="touchDragInside" id="8b7-c5-TvT"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="nf9-ne-b8H" secondAttribute="bottom" id="G6d-ja-Kgv"/>
-                        <constraint firstItem="nf9-ne-b8H" firstAttribute="leading" secondItem="ct7-OR-d29" secondAttribute="leading" id="Y1H-mq-YEf"/>
-                        <constraint firstAttribute="trailing" secondItem="nf9-ne-b8H" secondAttribute="trailing" constant="90" id="kic-Be-OuJ"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-ZM-BKd">
                     <rect key="frame" x="0.0" y="0.0" width="285" height="155"/>
@@ -90,20 +69,37 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="LaJ-2I-YdN"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf9-ne-b8H">
+                    <rect key="frame" x="0.0" y="607" width="285" height="60"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="j9R-U6-JMW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="logout" destination="iN0-l3-epB" eventType="touchUpInside" id="5zo-qp-CM1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aa0-H4-x6S" firstAttribute="top" secondItem="UAp-ZM-BKd" secondAttribute="bottom" id="64j-J8-bpa"/>
+                <constraint firstItem="nf9-ne-b8H" firstAttribute="trailing" secondItem="aa0-H4-x6S" secondAttribute="trailing" id="89O-eJ-UdQ"/>
                 <constraint firstAttribute="bottom" secondItem="ct7-OR-d29" secondAttribute="bottom" id="9k3-EQ-bAz"/>
+                <constraint firstAttribute="bottom" secondItem="nf9-ne-b8H" secondAttribute="bottom" id="JYq-Wo-1zH"/>
                 <constraint firstAttribute="trailing" secondItem="UAp-ZM-BKd" secondAttribute="trailing" constant="90" id="MOX-2x-psd"/>
                 <constraint firstItem="ct7-OR-d29" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ume-Bl-EfK"/>
                 <constraint firstAttribute="trailing" secondItem="ct7-OR-d29" secondAttribute="trailing" id="Vu6-5D-KAR"/>
+                <constraint firstItem="nf9-ne-b8H" firstAttribute="top" secondItem="aa0-H4-x6S" secondAttribute="bottom" id="aX0-ke-kiU"/>
                 <constraint firstItem="UAp-ZM-BKd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eIc-CM-wam"/>
                 <constraint firstItem="ct7-OR-d29" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i5P-Uk-t7p"/>
+                <constraint firstItem="nf9-ne-b8H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lUt-6S-Piq"/>
                 <constraint firstItem="aa0-H4-x6S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="laX-pO-Ssw"/>
                 <constraint firstAttribute="trailing" secondItem="aa0-H4-x6S" secondAttribute="trailing" constant="90" id="pi9-gG-Nc7"/>
                 <constraint firstItem="UAp-ZM-BKd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="skJ-UU-7z6"/>
-                <constraint firstAttribute="bottom" secondItem="aa0-H4-x6S" secondAttribute="bottom" constant="60" id="yAQ-UR-YbD"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

@@ -24,6 +24,16 @@ class LoginController: MyViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let ctrl =  (UIApplication.shared.keyWindow?.rootViewController)!
+//        let view = ctrl.view!
+//        let imageView = Config.backImage
+//        imageView.frame = view.frame
+//        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+//        imageView.clipsToBounds = true
+//        view.addSubview(imageView)
+//        view.sendSubview(toBack: imageView)
+
         userView.layer.cornerRadius = userView.frame.height / 2
         passView.layer.cornerRadius = passView.frame.height / 2
         loginBtn.layer.cornerRadius = 5
