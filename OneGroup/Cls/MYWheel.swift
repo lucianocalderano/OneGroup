@@ -34,7 +34,8 @@ class MYWheel: UIView {
         
         activityIndicatorView.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
         activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicatorView.center = CGPoint(x: activityIndicatorContainer.frame.size.width / 2, y: activityIndicatorContainer.frame.size.height / 2)
+        activityIndicatorView.center = CGPoint(x: activityIndicatorContainer.frame.size.width / 2,
+                                               y: activityIndicatorContainer.frame.size.height / 2)
         
         activityIndicatorContainer.addSubview(activityIndicatorView)
         

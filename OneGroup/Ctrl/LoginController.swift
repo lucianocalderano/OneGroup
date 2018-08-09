@@ -46,7 +46,7 @@ class LoginController: MyViewController {
             selectButton(btn: saveCredBtn)
         }
     }
-
+    
     @IBAction func saveSelected () {
         selectButton(btn: saveCredBtn)
     }
@@ -64,29 +64,15 @@ class LoginController: MyViewController {
             passText.becomeFirstResponder()
             return
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(httpResponse(_:)),
-                                               name: Config.Notification.login, object: nil)
-        User.shared.login(user: userText.text!, pass: passText.text!, save: (saveCredBtn.tag > 0))
-    }
-    
-    @objc func httpResponse(_ notification:Notification) {
-        NotificationCenter.default.removeObserver(self)
-        let valid = notification.object as! Bool
-        if (valid) {
-            let ctrl = HomeController.Instance()
-            navigationController?.show(ctrl, sender: self)
-            ctrl.menu = notification.userInfo?.string("menu") ?? ""
-        }
-        else {
-            let title = notification.userInfo?.string("msg") ?? "Errore"
-            let msg = notification.userInfo?.string("err") ?? "Errore sconosciuto"
-            
-            let alert = UIAlertController(title: title as String, message: msg  as String, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
+        
+        User.shared.login(withUser: userText.text!,
+                          password: passText.text!,
+                          saveData: saveCredBtn.tag > 0) { (response) in
+                            let ctrl = HomeController.Instance()
+                            ctrl.menu = response as! String
+                            self.navigationController?.show(ctrl, sender: self)
         }
     }
-    
     func selectButton(btn: UIButton){
         if (btn.tag > 0) {
             btn.tag = 0
@@ -95,5 +81,5 @@ class LoginController: MyViewController {
             btn.tag = 1
             btn.setBackgroundImage(check, for: .normal)
         }
-    }    
+    }
 }

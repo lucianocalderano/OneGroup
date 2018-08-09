@@ -26,7 +26,6 @@ class MenuView: UIView {
     @IBOutlet private var backView: UIView!
     @IBOutlet private var topView: UIView!
     @IBOutlet private var titleLabel: UILabel!
-//    @IBOutlet private var backButton: MyBackButton!
 
     var dataArray = [String]()
     let cellId = "MenuCell"
@@ -36,11 +35,6 @@ class MenuView: UIView {
         let tapBack = UITapGestureRecognizer.init(target: self, action: #selector(closeMenu))
         self.backView.addGestureRecognizer(tapBack)
         titleLabel.text = "One Group 1.0"
-//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
-
-//        let g = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-//        self.addGestureRecognizer(g);
-//        self.isUserInteractionEnabled = true;
     }
     
     @IBAction func closeMenu () {

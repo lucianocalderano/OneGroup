@@ -15,6 +15,11 @@ import Foundation
 import Alamofire
 
 class MYHttp {
+    struct Error {
+        public var title = ""
+        public var message = ""
+    }
+    
     static let printJson = true
     
     private var json = JsonDict()    
@@ -41,7 +46,7 @@ class MYHttp {
         self.startWheel(showWheel)
     }
     
-    func load(ok: @escaping (JsonDict) -> (), KO: @escaping (String, String) -> ()) {
+    func load(ok: @escaping (JsonDict) -> ()) {
         printJson(json)
         var headers = [String: String]()
 //        headers["content-type"] = "application/json"
@@ -54,27 +59,30 @@ class MYHttp {
                           parameters: json,
                           headers: headers).responseJSON(completionHandler: { response in
                             self.startWheel(false)
-                            let data = self.fixResponse(response)
-                            if data.isValid {
-                                ok (data.dict)
-                            } else {
-                                KO (data.dict.string("err"), data.dict.string("msg"))
+                            if let json = self.fixResponse(response) {
+                                ok (json)
                             }
         })
     }
     
-    private func fixResponse (_ response: DataResponse<Any>) -> (isValid: Bool, dict: JsonDict) {
+    private func fixResponse (_ response: DataResponse<Any>) -> JsonDict? {
         let statusCode = response.response?.statusCode
         let array = apiUrl.components(separatedBy: "/")
         let page = array.last ?? apiUrl
         
         if response.result.isSuccess && statusCode == 200 {
             let dict = response.value as! JsonDict
-            return (true, dict)
+            return dict
         }
         let errorMessage = response.error == nil ? "Server error" :  (response.error?.localizedDescription)!
-        let dict = [ "err" : "Server error \(statusCode ?? 0)\n[ \(page) ]", "msg" : errorMessage ]
-        return (false, dict)
+        let err = Error(title: "Server error \(statusCode ?? 0)\n[ \(page) ]", message: errorMessage)
+
+        let error = err
+        let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let ctrl = UIApplication.shared.keyWindow?.rootViewController
+        ctrl?.present(alert, animated: true, completion: nil)
+        return nil
     }
     
     // MARK: - private

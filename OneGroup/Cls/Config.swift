@@ -27,24 +27,29 @@ struct Config {
         static let header = "Auth "
         static var token = ""
     }
-    struct Notification {
-        static let login = NSNotification.Name(rawValue: "loginNotification")
-    }
+    static let backImage = UIImageView.init(image: UIImage.init(named: "Sfondo.jpg"))
 }
 
+//MARK:-
+
 class MyViewController: UIViewController {
+    class BackImage  {
+        static let shared = BackImage()
+        public func addBackImage (_ ctrl: UIViewController) {
+            let view = ctrl.view!
+            let imageView = Config.backImage
+            imageView.frame = view.frame
+            imageView.contentMode =  UIViewContentMode.scaleAspectFill
+            imageView.clipsToBounds = true
+            view.addSubview(imageView)
+            view.sendSubview(toBack: imageView)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
-        let background = UIImage(named: "Sfondo.jpg")
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        BackImage.shared.addBackImage(self)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -52,18 +57,20 @@ class MyViewController: UIViewController {
     }
 }
 
+//MARK:-
+
 class MyBackButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
     
     private func initialize () {
+        self.showsTouchWhenHighlighted = true
         self.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

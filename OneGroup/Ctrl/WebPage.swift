@@ -19,7 +19,6 @@ class WebPage: MyViewController {
     var page = ""
     
     @IBOutlet private var container: UIView!
-//    @IBOutlet private var backButton: MyBackButton!
     
     private var webView = WKWebView()
     private let wheel = MYWheel()
@@ -28,7 +27,6 @@ class WebPage: MyViewController {
         super.viewDidLoad()
         container.isUserInteractionEnabled = true
         webView.navigationDelegate = self
-//        backButton.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,27 +34,11 @@ class WebPage: MyViewController {
         if page.isEmpty {
             return
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(httpResponse(_:)),
-                                               name: Config.Notification.login, object: nil)
-        User.shared.login()
-    }
-    
-    @objc func httpResponse(_ notification:Notification) {
-        NotificationCenter.default.removeObserver(self)
-        let valid = notification.object as! Bool
-        if (valid) {
-            wheel.start()
-            var request = URLRequest(url: URL(string: page)!)
+        User.shared.login { (response) in
+            self.wheel.start()
+            var request = URLRequest(url: URL(string: self.page)!)
             request.setValue(User.shared.token, forHTTPHeaderField: "Authorization")
-            webView.load(request)
-        }
-        else {
-            let title = notification.userInfo?.string("msg") ?? "Errore"
-            let msg = notification.userInfo?.string("err") ?? "Errore sconosciuto"
-            
-            let alert = UIAlertController(title: title as String, message: msg  as String, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
+            self.webView.load(request)
         }
     }
     
