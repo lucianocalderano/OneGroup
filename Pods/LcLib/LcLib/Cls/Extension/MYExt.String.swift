@@ -2,8 +2,8 @@
 //  ExtString.swift
 //  Lc
 //
-//  Created by Luciano Calderano on 26/10/16.
-//  Copyright © 2016 Kanito. All rights reserved.
+//  Created by Luciano Calderano on 2018
+//  Copyright © 2018 Lc. All rights reserved.
 //
 
 import Foundation

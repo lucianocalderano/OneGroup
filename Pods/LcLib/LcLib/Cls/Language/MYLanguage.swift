@@ -2,13 +2,13 @@
 //  MYLang.swift
 //  Lc
 //
-//  Created by Luciano Calderano on 09/11/16.
-//  Copyright © 2016 Kanito. All rights reserved.
+//  Created by Luciano Calderano on 2018
+//  Copyright © 2018 Lc. All rights reserved.
 //
 
 import Foundation
 
-typealias LangDict = [String: String]
+private typealias LangDict = [String: String]
 
 public extension String {
     func toLang() -> String {

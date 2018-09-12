@@ -26,14 +26,14 @@ THE SOFTWARE.
 
 ## LcLib
 
-Licensed LcLib free Version 0.0.1 (by Lc)
+Licensed LcLib free Version 1.0.1 (by Lc)
 
 #pod spec create LcLib
 
 #git init
 #git add .
 #git commit -m "Initial commit"
-#git tag 0.0.1
+#git tag 1.0.1
 #git remote add origin https://github.com/lucianocalderano/LcLib.git
 #git push -u origin master --tags
 
