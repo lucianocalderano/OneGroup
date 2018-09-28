@@ -37,7 +37,7 @@ class WebPage: MyViewController {
         User.shared.login { (response) in
             self.wheel.start()
             var request = URLRequest(url: URL(string: self.page)!)
-            request.setValue(User.shared.token, forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer " + User.shared.token, forHTTPHeaderField: "Authorization")
             self.webView.load(request)
         }
     }

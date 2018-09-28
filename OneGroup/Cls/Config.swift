@@ -39,10 +39,10 @@ class MyViewController: UIViewController {
             let view = ctrl.view!
             let imageView = Config.backImage
             imageView.frame = view.frame
-            imageView.contentMode =  UIViewContentMode.scaleAspectFill
+            imageView.contentMode =  UIView.ContentMode.scaleAspectFill
             imageView.clipsToBounds = true
             view.addSubview(imageView)
-            view.sendSubview(toBack: imageView)
+            view.sendSubviewToBack(imageView)
         }
     }
     
